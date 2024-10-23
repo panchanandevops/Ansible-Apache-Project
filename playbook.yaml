@@ -1,0 +1,6 @@
+---
+- name: Configure Apache HTTP Server on EC2 instances
+  hosts: all
+  become: true
+  roles:
+    - apache
