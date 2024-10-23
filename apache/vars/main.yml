@@ -1,4 +1,4 @@
-# vars file for apache
 ---
+# vars file for apache
 apache_package: "{{ 'httpd' if ansible_distribution == 'Amazon' else 'apache2' }}"
-apache_service: "{{ 'httpd' if ansible_distribution == 'Amazon' else 'apache2' }}"
+apache_service: "{{ apache_package }}"

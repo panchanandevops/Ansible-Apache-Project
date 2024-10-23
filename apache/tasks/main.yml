@@ -1,20 +1,14 @@
 ---
-- name: Update package list on Ubuntu instances
+# Main tasks for Apache installation and configuration
+- name: Update package cache (Ubuntu)
   apt:
     update_cache: yes
   when: ansible_distribution == 'Ubuntu'
 
 - name: Install Apache HTTP Server
-  apt:
-    name: "{{ apache_package }}"
-    state: present
-  when: ansible_distribution == 'Ubuntu'
-
-- name: Ensure Apache is installed
   package:
     name: "{{ apache_package }}"
     state: present
-  when: ansible_distribution == 'Amazon'
 
 - name: Start and enable Apache service
   service:

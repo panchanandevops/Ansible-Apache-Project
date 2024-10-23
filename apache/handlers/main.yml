@@ -1,4 +1,5 @@
 ---
+# Handlers for apache role
 - name: Restart Apache service
   service:
     name: "{{ apache_service }}"

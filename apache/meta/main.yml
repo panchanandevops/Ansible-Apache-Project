@@ -1,11 +1,11 @@
+---
 galaxy_info:
   author: Panchanan Panigrahi
   description: Installs and configures Apache HTTP Server (httpd or apache2) on EC2 instances.
   company: panchanandevops.com
   license: MIT
-  min_ansible_version: "2.9" # Or the minimum version your role is compatible with
+  min_ansible_version: "2.9" # Minimum version supported
 
-  # List the platforms your role supports. Use 'all' if you support all versions of a platform.
   platforms:
     - name: Ubuntu
       versions:
@@ -20,6 +20,4 @@ galaxy_info:
     - apache2
     - webserver
 
-dependencies:
-  []
-  # List your role dependencies here if applicable.
+dependencies: []
