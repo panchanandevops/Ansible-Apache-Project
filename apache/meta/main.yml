@@ -1,23 +1,22 @@
 ---
 galaxy_info:
   author: Panchanan Panigrahi
-  description: Installs and configures Apache HTTP Server (httpd or apache2) on EC2 instances.
-  company: panchanandevops.com
+  description: Installs and configures Apache HTTP Server on Ubuntu and Red Hat systems.
   license: MIT
-  min_ansible_version: "2.9" # Minimum version supported
+  min_ansible_version: "2.9"
 
   platforms:
     - name: Ubuntu
       versions:
-        - all
-    - name: Amazon
+        - "focal"  # Ubuntu 20.04 LTS
+        - "jammy"  # Ubuntu 22.04 LTS
+    - name: EL
       versions:
-        - all
+        - "8"
+        - "9"
 
   galaxy_tags:
     - apache
-    - httpd
-    - apache2
     - webserver
 
 dependencies: []

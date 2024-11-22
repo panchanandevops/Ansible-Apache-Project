@@ -1,6 +1,6 @@
 ---
-# Handlers for apache role
+# Handlers for Apache role
 - name: Restart Apache service
-  service:
+  ansible.builtin.service:
     name: "{{ apache_service }}"
     state: restarted

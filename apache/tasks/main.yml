@@ -1,17 +1,28 @@
 ---
 # Main tasks for Apache installation and configuration
-- name: Update package cache (Ubuntu)
-  apt:
+
+- name: Update package cache (Debian/Ubuntu)
+  ansible.builtin.apt:
     update_cache: yes
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_pkg_mgr == 'apt'
+  tags: update-cache
+
+- name: Update package cache (Red Hat 9)
+  ansible.builtin.dnf:
+    update_cache: yes
+  when: ansible_pkg_mgr == 'dnf'
+  tags: update-cache
 
 - name: Install Apache HTTP Server
-  package:
+  ansible.builtin.package:
     name: "{{ apache_package }}"
     state: present
+  notify: Restart Apache service
+  tags: install
 
-- name: Start and enable Apache service
-  service:
+- name: Ensure Apache service is started and enabled
+  ansible.builtin.service:
     name: "{{ apache_service }}"
     state: started
     enabled: yes
+  tags: configure
