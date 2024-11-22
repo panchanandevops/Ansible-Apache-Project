@@ -26,6 +26,6 @@ variable "ubuntu_ami" {
   default = "ami-0a0e5d9c7acc336f1"  
 }
 
-variable "amazon_linux_ami" {
-  default = "ami-066784287e358dad1"  
+variable "redhat_ami" {
+  default = "ami-0583d8c7a9c35822c"  
 }

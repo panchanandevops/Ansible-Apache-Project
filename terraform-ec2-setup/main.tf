@@ -122,8 +122,8 @@ resource "aws_instance" "ubuntu_instance" {
 }
 
 # Create Amazon Linux EC2 Instance
-resource "aws_instance" "amazon_linux_instance" {
-  ami                    = var.amazon_linux_ami
+resource "aws_instance" "redhat_instance" {
+  ami                    = var.redhat_ami
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.allow_ssh_http_https.id]
@@ -136,7 +136,7 @@ resource "aws_instance" "amazon_linux_instance" {
   ]
 
   tags = {
-    Name = "amazon-linux-instance"
+    Name = "redhat-instance"
   }
 }
 
@@ -145,6 +145,6 @@ output "ubuntu_instance_public_ip" {
   value = aws_instance.ubuntu_instance.public_ip
 }
 
-output "amazon_linux_instance_public_ip" {
-  value = aws_instance.amazon_linux_instance.public_ip
+output "redhat_instance_public_ip" {
+  value = aws_instance.redhat_instance.public_ip
 }
